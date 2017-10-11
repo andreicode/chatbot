@@ -1,49 +1,55 @@
 <aiml>
 
-
     <!-- DEFAULT STATE -->
 
-
     <category>
-        <pattern><set name='name'>!NONAME</set></pattern>
-        <template>Name reset=> <get name='name'/></template>
+        <pattern>
+            <set name='name'>!NONAME</set>
+        </pattern>
+        <template>Name reset=>
+            <get name='name'/></template>
     </category>
 
     <category>
-        <pattern><set name='age'>!NOAGE</set></pattern>
-        <template>Age reset=> <get name='name'/></template>
+        <pattern>
+            <set name='age'>!NOAGE</set>
+        </pattern>
+        <template>Age reset=>
+            <get name='name'/></template>
     </category>
 
     <category>
-        <pattern><set name='job'>!NOJOB</set></pattern>
-        <template>Job reset=> <get name='name'/></template>
+        <pattern>
+            <set name='job'>!NOJOB</set>
+        </pattern>
+        <template>Job reset=>
+            <get name='name'/></template>
     </category>
-
 
     <!-- GREETINGS -->
-
 
     <category>
         <pattern>HI *</pattern>
         <template>Hello. What is your name?</template>
     </category>
 
-   <category>
+    <category>
         <pattern>HELLO *</pattern>
         <template>Hello. What is your name?</template>
     </category>
-
 
     <!-- QUESTIONS -->
 
     <category>
         <pattern>WHAT IS YOUR NAME</pattern>
-            <template>My name is <bot name="name"/></template>
+        <template>My name is <bot name="name"/></template>
     </category>
 
     <category>
-        <pattern>MY NAME IS <set name='name'>*</set></pattern>
-        <template>Hey <get name='name'/>! How old are you?</template>
+        <pattern>MY NAME IS <set name='name'>*</set>
+        </pattern>
+        <template>Hey
+            <get name='name'/>! How old are you?</template>
     </category>
 
     <category>
@@ -63,57 +69,67 @@
     </category>
 
     <category>
-        <pattern>I AM A <set name='job'>*</set></pattern>
+        <pattern>I AM A <set name='job'>*</set> </pattern>
         <template>
             <condition name="job">
                 <li value="student">Great success!</li>
-                <li value="miner">You should visit a doctor!</li>
+                <li value="miner">Hope you struck gold!</li>
                 <li>Very well!</li>
             </condition>
         </template>
     </category>
 
     <category>
-        <pattern>BYE<pattern>
+        <pattern>BYE</pattern>
         <template>
             <random>
-                <li> Bye! </li>
-                <li> Goodbye! </li>
-            </random>
-      </template>
-
-    <category>
-        <pattern>GOODBYE<pattern>
-        <template>
-            <random>
-                <li> Bye! </li>
-                <li> Goodbye! </li>
+                <li>
+                    Bye!
+                </li>
+                <li>
+                    Goodbye!
+                </li>
             </random>
         </template>
-      
     </category>
 
-    
+    <category>
+        <pattern>GOODBYE</pattern>
+        <template>
+            <random>
+                <li>
+                    Bye!
+                </li>
+                <li>
+                    Goodbye!
+                </li>
+            </random>
+        </template>
+
+    </category>
+
     <category>
         <pattern>REMEMBER ME ?</pattern>
         <template>
             <condition name='name'>
                 <li value='!noname'>No, what is your name?</li>
-                <li>Hi, <get name='name'/></li>      
+                <li>Hi,
+                    <get name='name'/></li>
             </condition>
         </template>
     </category>
 
     <category>
-        <pattern>*<pattern>
+        <pattern>*</pattern>
         <template>
             <random>
-                <li> I have no idea what you are talking about. </li>
-                <li> I did not understand that. </li>
+                <li>
+                    I have no idea what you are talking about.
+                </li>
+                <li>
+                    I did not understand that.
+                </li>
             </random>
         </template>
-      
     </category>
-
-    
 </aiml>
