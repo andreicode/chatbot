@@ -45,6 +45,12 @@ export default {
         }
       )
 
+    //   var list = window.document.getElementById('mainList')
+    //   console.log(list)
+      this.$nextTick(() => {
+        this.$refs.mainList.scrollTop = this.$refs.mainList.scrollHeight
+      })
+
       var _this = this
 
       axios.post('http://localhost:3000', { data: this.message })
@@ -57,6 +63,9 @@ export default {
             }
           )
           _this.allow = true
+          _this.$nextTick(() => {
+            _this.$refs.mainList.scrollTop = _this.$refs.mainList.scrollHeight
+          })
         })
         .catch(function (e) {
           console.log(e)

@@ -4,6 +4,11 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 var AIMLInterpreter = require('aimlinterpreter');
 
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
 var bot = {
     name: 'Real Human Person',
     age: '42',
@@ -28,13 +33,23 @@ app.post('/', function (req, res) {
 
     var data = req.body.data;
 
-    aimlInterpreter.findAnswerInLoadedAIMLFiles(data, function (answer) {
+    aimlInterpreter.findAnswerInLoadedAIMLFiles(data, function (answer, wildcards, input) {
 
-        res.json(
-            {
-                "data": answer
-            }
-        );
+        if (input.toLowerCase() === 'bye' || input.toLowerCase() === 'goodbye') {
+
+            reset();
+
+        }
+
+        setTimeout( function () {
+
+            res.json(
+                {
+                    "data": answer
+                }
+            );
+
+        }, randomIntFromInterval(400, 2000));
 
     });
 })
