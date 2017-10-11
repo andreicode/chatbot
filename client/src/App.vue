@@ -3,7 +3,9 @@
     <el-row type="flex" justify="center">
       <el-col :span="12">
         <div class="list" ref="mainList">
-          <p class="message" v-for="(message, index) in list" :key="index"><span v-if="message.user" class="user-label">You: </span> <span v-if="!message.user" class="chatbot-label">Chatbot: </span> {{ message.text }}</p>
+          <p class="message" v-for="(message, index) in list" :key="index">
+            <span v-if="message.user" class="user-label">You: </span>
+            <span v-if="!message.user" class="chatbot-label">Chatbot: </span> {{ message.text }}</p>
         </div>
         <div class="action">
           <el-input class="text" type="textarea" :rows="2" placeholder="Please input" v-model="message">
@@ -16,8 +18,7 @@
 </template>
 
 <script>
-
-import Aiml from 'aimlinterpreter'
+import axios from 'axios'
 
 export default {
   name: 'app',
@@ -43,34 +44,31 @@ export default {
           text: this.message
         }
       )
-      this.scrollList()
-      this.response()
+
+      var _this = this
+
+      axios.post('http://localhost:3000', { data: this.message })
+        .then(function (resp) {
+          var data = resp.data.data
+          _this.list.push(
+            {
+              user: false,
+              text: data
+            }
+          )
+          _this.allow = true
+        })
+        .catch(function (e) {
+          console.log(e)
+        })
       this.message = ''
-    },
-    response (mesage) {
-      const _this = this
-      setTimeout(function () {
-        _this.list.push(
-          {
-            user: false,
-            text: 'Some response'
-          }
-        )
-        _this.allow = true
-        _this.scrollList()
-      }, 1000)
-    },
-    scrollList () {
-      // this.$refs.mainList.scrollTop = this.$refs.mainList.scrollHeight
     }
   }
 }
 </script>
 
 <style scoped>
-#app {
-
-}
+#app {}
 
 .list {
   height: 400px;

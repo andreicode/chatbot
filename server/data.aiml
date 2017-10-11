@@ -1,0 +1,23 @@
+<aiml> 
+
+    <category>
+        <pattern>HI *</pattern>
+        <template>Hello. What is your name?</template>
+    </category>
+
+   <category>
+        <pattern>HELLO *</pattern>
+        <template>Hello. What is your name?</template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS YOUR NAME *</pattern>
+        <template>My name is <bot name='name'/>.</template>
+    </category>
+    
+    <category>
+
+        <pattern>HOW OLD ARE YOU</pattern>
+        <template>I am <bot name='age'/> years old.</template>
+    </category>
+</aiml>

@@ -11,9 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "aimlinterpreter": "^0.1.7",
+    "axios": "^0.16.2",
     "element-ui": "^1.4.6",
-    "fs": "0.0.1-security",
     "vue": "^2.4.2"
   },
   "devDependencies": {
