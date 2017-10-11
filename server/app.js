@@ -71,3 +71,5 @@ var callback = function (a, w, i) {
 //AIML TESTS
 // aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Gigi', callback);
 aimlInterpreter.findAnswerInLoadedAIMLFiles('Remember me ?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('I am a miner', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name', callback);

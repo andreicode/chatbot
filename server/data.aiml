@@ -36,6 +36,10 @@
 
     <!-- QUESTIONS -->
 
+    <category>
+        <pattern>WHAT IS YOUR NAME</pattern>
+            <template>My name is <bot name="name"/></template>
+    </category>
 
     <category>
         <pattern>MY NAME IS <set name='name'>*</set></pattern>
@@ -62,12 +66,33 @@
         <pattern>I AM A <set name='job'>*</set></pattern>
         <template>
             <condition name="job">
-                <li value="student">What is your major?</li>
-                <li value="miner">How much gold have you found?</li>
+                <li value="student">Great success!</li>
+                <li value="miner">You should visit a doctor!</li>
                 <li>Very well!</li>
             </condition>
         </template>
     </category>
+
+    <category>
+        <pattern>BYE<pattern>
+        <template>
+            <random>
+                <li> Bye! </li>
+                <li> Goodbye! </li>
+            </random>
+      </template>
+
+    <category>
+        <pattern>GOODBYE<pattern>
+        <template>
+            <random>
+                <li> Bye! </li>
+                <li> Goodbye! </li>
+            </random>
+        </template>
+      
+    </category>
+
     
     <category>
         <pattern>REMEMBER ME ?</pattern>
@@ -77,6 +102,17 @@
                 <li>Hi, <get name='name'/></li>      
             </condition>
         </template>
+    </category>
+
+    <category>
+        <pattern>*<pattern>
+        <template>
+            <random>
+                <li> I have no idea what you are talking about. </li>
+                <li> I did not understand that. </li>
+            </random>
+        </template>
+      
     </category>
 
     
