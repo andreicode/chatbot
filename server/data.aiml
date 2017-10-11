@@ -73,7 +73,24 @@
         </template>
     </category>
 
-   
+    <category>
+        <pattern>BYE<pattern>
+        <template>
+            <random>
+                <li> Bye! </li>
+                <li> Goodbye! </li>
+            </random>
+      </template>
+
+    <category>
+        <pattern>GOODBYE<pattern>
+        <template>
+            <random>
+                <li> Bye! </li>
+                <li> Goodbye! </li>
+            </random>
+        </template>
+      
     </category>
 
     
@@ -85,6 +102,17 @@
                 <li>Hi, <get name='name'/></li>      
             </condition>
         </template>
+    </category>
+
+    <category>
+        <pattern>*<pattern>
+        <template>
+            <random>
+                <li> I have no idea what you are talking about. </li>
+                <li> I did not understand that. </li>
+            </random>
+        </template>
+      
     </category>
 
     
