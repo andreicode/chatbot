@@ -1,4 +1,8 @@
 <aiml> 
+    <category>
+        <pattern>!SETNAME</pattern>
+        <think><set name="name">!noname</set></think>
+    </category>
 
     <category>
         <pattern>HI *</pattern>
@@ -11,11 +15,63 @@
     </category>
 
     <category>
-        <pattern>WHAT IS YOUR NAME *</pattern>
-        <template>My name is <bot name='name'/>.</template>
+
+        <pattern>MY NAME IS <set name='name'>*</set></pattern>
+        <template>Hey <get name='name'/>! How old are you?</template>
+    
+    </category>
+
+    <category>
+
+        <pattern>I AM <set name='age'>*</set> YEARS OLD</pattern>
+        <template>
+            <condition name="age">
+                <li value="18">I wish I was young again.</li>
+                <li value="50">When did you last visit your doctor?</li>
+                <li>Live long and prosper!</li>
+            </condition>
+        </template>
+    
+    </category>
+
+    <category>
+
+        <pattern>HOW OLD ARE YOU</pattern>
+        <template>I am <bot name='age'/> years old.</template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU DO FOR A LIVING</pattern>
+        <template>I entertain people. What do you do for a living?</template>
+    </category>
+
+    <category>
+        <pattern>I AM A <set name='job'>*</set></pattern>
+        <template>
+            <condition name="job">
+                <li value="student">What is your major?</li>
+                <li value="miner">How much gold have you found?</li>
+                <li>Very well!</li>
+            </condition>
+        </template>
     </category>
     
+ 
+
+    
+
     <category>
+        <pattern>REMEMBER ME?</pattern>
+        <template>
+        <get name="name"/>
+             <condition>
+                <li name="name" value="undefined"> No </li>
+                <li>Yes! Hello, <get name='name'/></li>
+            </condition> 
+        </template>
+    </category>
+
+    <!-- <category>
 
         <pattern>HOW OLD ARE YOU</pattern>
         <template>I am <bot name='age'/> years old.</template>
@@ -25,17 +81,5 @@
 
         <pattern>HOW OLD ARE YOU</pattern>
         <template>I am <bot name='age'/> years old.</template>
-    </category>
-
-    <category>
-
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
-    </category>
-
-    <category>
-
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
-    </category>
+    </category> -->
 </aiml>

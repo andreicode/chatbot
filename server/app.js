@@ -20,20 +20,14 @@ var callback = function(answer, wildCardArray, input){
     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
 };
 
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Hi', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Hello', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How old are you', callback);
+// aimlInterpreter.findAnswerInLoadedAIMLFiles('!setname', callback);
+// aimlInterpreter.findAnswerInLoadedAIMLFiles('Remember me?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Karina', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('I am 50 years old.', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What do you do for a living?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('I am a student.', callback);
 
-
-
-var user = {
-    name: undefined,
-    age: undefined,
-    occupation: undefined,
-}
-
-
+// aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Karina', callback);
 
 
 
