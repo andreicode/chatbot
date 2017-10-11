@@ -9,12 +9,8 @@ var bot = {
     age: '42',
 }
 
-var aimlInterpreter = undefined;
-
-var aimlInterpreter = new AIMLInterpreter({name:'Gigi', age:'402'});
-
+var aimlInterpreter = new AIMLInterpreter(bot);
 aimlInterpreter.loadAIMLFilesIntoArray(['./data.aiml']);
-
 
 
 var reset = function () {
@@ -58,4 +54,5 @@ var callback = function (a, w, i) {
 }
 
 //AIML TESTS
+// aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Gigi', callback);
 aimlInterpreter.findAnswerInLoadedAIMLFiles('Remember me ?', callback);
