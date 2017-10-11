@@ -4,63 +4,58 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 var AIMLInterpreter = require('aimlinterpreter');
 
+var bot = {
+    name: 'Real Human Person',
+    age: '42',
+}
 
+var aimlInterpreter = undefined;
 
 var aimlInterpreter = new AIMLInterpreter({name:'Gigi', age:'402'});
-
-
 
 aimlInterpreter.loadAIMLFilesIntoArray(['./data.aiml']);
 
 
 
-var callback = function(answer, wildCardArray, input){
+var reset = function () {
 
+    aimlInterpreter.findAnswerInLoadedAIMLFiles('!noname', function () {});
+    aimlInterpreter.findAnswerInLoadedAIMLFiles('!noage', function () {});
+    aimlInterpreter.findAnswerInLoadedAIMLFiles('!nojob', function () {});
 
-    console.log(answer + ' | ' + wildCardArray + ' | ' + input);
-};
-
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Hi', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Hello', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How old are you', callback);
-
-
-
-var user = {
-    name: undefined,
-    age: undefined,
-    occupation: undefined,
 }
-
-
-
-
-
 
 app.use(cors())
 app.use(bodyParser.json())
 
 app.post('/', function (req, res) {
 
-    //Culegere intrebare
     var data = req.body.data;
 
-    //Procesare raspuns
-    var answer = data;
+    aimlInterpreter.findAnswerInLoadedAIMLFiles(data, function (answer) {
 
+        res.json(
+            {
+                "data": answer
+            }
+        );
 
-
-
-
-    //Trimitere raspuns
-    res.json(
-        {
-            "data": answer
-        }
-    );
+    });
 })
+
+reset();
 
 app.listen(3000, function () {
     console.log('Server started on port 3000!')
 })
+
+var callback = function (a, w, i) {
+    console.log('\n');
+    console.log('Answer: ' + a);
+    console.log('Wildcards: ' + w);
+    console.log('Input: ' + i);
+    console.log('\n');
+}
+
+//AIML TESTS
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Remember me ?', callback);

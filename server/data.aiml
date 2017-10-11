@@ -15,27 +15,40 @@
         <template>My name is <bot name='name'/>.</template>
     </category>
     
-    <category>
+    <!-- <category>
 
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
+        <pattern>MY NAME IS *</pattern>
+        <think><set name="clientName"><star/></set></think>
+        <template>Name -> <get name="clientName"/></template>
+    </category> -->
+
+    <category>
+        <pattern><set name='name'>!NONAME</set></pattern>
+        <template>Name reset=> <get name='name'/></template>
+    </category>
+
+        <category>
+        <pattern><set name='age'>!NOAGE</set></pattern>
+        <template>Age reset=> <get name='name'/></template>
     </category>
 
     <category>
-
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
+        <pattern><set name='job'>!NOJOB</set></pattern>
+        <template>Job reset=> <get name='name'/></template>
     </category>
 
     <category>
-
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
+        <pattern>MY NAME IS <set name='name'>*</set></pattern>
+        <template>Hey <get name='name'/>!</template>
     </category>
 
     <category>
-
-        <pattern>HOW OLD ARE YOU</pattern>
-        <template>I am <bot name='age'/> years old.</template>
+        <pattern>REMEMBER ME?</pattern>
+        <template>
+            <condition name='name'>
+                <li value='!noname'>No, what is your name?</li>
+                <li>Hi, <get name='name'/></li>      
+            </condition>
+        </template>
     </category>
 </aiml>
